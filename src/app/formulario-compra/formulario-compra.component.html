@@ -1,0 +1,83 @@
+<h1 id="titulo">Fabrica de Ropa IBM</h1>
+
+<p id="descripcion">
+    Los pedidos que se hacen por este medio son para comprar ropa exclusiva de la microempresa, se informa al usuario que el precio del transporte no está incluido y dependerá del lugar de entrega, este se deberá cancelar junto con el valor del pedido en
+    el momento de la entrega.
+</p>
+
+<form>
+    <label for="nombrePersona">Nombre: </label>
+    <input type="text"
+           placeholder="Nombre"
+           name="nombrePersona"
+           id="nombrePersona"
+           [(ngModel)]="model.nombrePersona"
+           required>
+    <br>
+
+    <label for="tipoDocumentos">Tipo Documento: </label>
+    <select name="comboTipoDocumento"
+            id="comboTipDoc"
+            [(ngModel)]="tipoDocumentoSelect">
+            <option>Seleccione una opcion..</option>
+            <option *ngFor="let docu of tipoDocumento$ | async" [value]="docu.id">
+                {{docu.nombre}}                
+            </option>
+    </select>
+    <br>
+
+    <label for="numeroIndentificacion">Numero: </label>
+    <input type="text"
+           placeholder="Numero ID"
+           name="numeroIndentificacion"
+           id="numeroIndentificacion"
+           [(ngModel)]="model.numeroIndentificacion"
+           required>
+    <br>
+
+    <label for="tipoRopa">Tipo Ropa: </label>
+    <select name="comboTipoRopa"
+            id="comboTipRopaa"
+            [(ngModel)]="tipoRopaSelect">
+            <option>Seleccione una opcion..</option>
+            <option *ngFor="let ropa of ropa$ | async" [value]="ropa.id">
+                {{ropa.nombre}}                
+            </option>
+    </select>
+
+    <br>
+
+    <label for="cantidadProductos">Cantidad de productos: </label>
+    <input type="text"
+           placeholder="Cantidad.."
+           name="cantidadProductos"
+           id="cantidadProductos"
+           [(ngModel)]="model.cantidadProductos"
+           required>
+    <br>
+
+    <label for="fechaEntrega">Fecha de entrega: </label>
+    <input type="datetime-local"
+           name="fechaEntrega"
+           id="fechaEntrega"
+           [(ngModel)]="model.fechaEntrega"
+           required>
+    <br>
+
+    <label for="direccion">Direccion: </label>
+    <input type="text"
+           placeholder="Direccion"
+           name="direccion"
+           id="direccion"
+           [(ngModel)]="model.direccion"
+           required>
+    <br>
+
+    <button (click)="hacerPedido(model.nombrePersona,
+                            model.numeroIndentificacion,
+                            model.cantidadProductos,
+                            model.fechaEntrega,
+                            model.direccion)">Hacer Pedido
+    </button>
+
+</form>
