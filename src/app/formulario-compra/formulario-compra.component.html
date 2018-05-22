@@ -73,11 +73,28 @@
            required>
     <br>
 
-    <button (click)="hacerPedido(model.nombrePersona,
+    <button *ngIf="contador !== 0"
+            (click)="hacerPedido(model.nombrePersona,
                             model.numeroIndentificacion,
                             model.cantidadProductos,
                             model.fechaEntrega,
                             model.direccion)">Hacer Pedido
     </button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <table border=4>
+        <tr>
+            <td>Valor a pagar</td>
+        </tr>
+        <tr>
+            <td>{{valorAPagar}}</td>
+        </tr>
+    </table>
+
 
 </form>

@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { FormularioCompraComponent } from './formulario-compra/formulario-compra.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [ AppComponent, FormularioCompraComponent, PrincipalComponent ],
-	imports: [ BrowserModule, app_routing, HttpClientModule, FormsModule ],
-	providers: [ FormularioService ],
+	imports: [ BrowserModule, app_routing, HttpClientModule, FormsModule, HttpModule ],
+	providers: [ FormularioService, HttpModule ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
